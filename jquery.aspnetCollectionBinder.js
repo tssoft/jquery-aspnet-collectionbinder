@@ -91,7 +91,6 @@
             return this._el;
         },
         setInputIndex: function (index, input) {
-            // todo: имя может быть не только у инпута
             var fieldName = input.attr('name');
             var indexRegExp = new RegExp("(\\[\\d+\\])");
             var newFieldName = fieldName.replace(indexRegExp, '[' + index + ']');
