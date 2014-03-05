@@ -3,7 +3,6 @@ jquery-aspnet-collectionbinder
 
 A simple, lightweight jQuery utility plugin for easy mapping ASP.NET MVC non-sequential collections.
 
-
 #Installation
 
 ```html
@@ -33,6 +32,10 @@ $('#employee-table').aspnetCollectionBinder({
 
 In this case you need call ```$('#employee-table').aspnetCollectionBinder('update')``` before form submit.
 Manual updating may be useful for browsers without Mutation event support.
+
+#About (russian)
+
+http://ts-soft.ru/blog/jquery-aspnet-collectionbinder
 
 
 
