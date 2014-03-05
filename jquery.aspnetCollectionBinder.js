@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 (function ($) {
+=======
+﻿(function ($) {
+>>>>>>> origin/0.1
     var aspnetCollectionBinder = {
         _cfg: {
             event: 'DOMNodeInserted',
             modelName: '',
             hiddenIndexFieldClass: 'aspModelIndexer-hidden-index',
+<<<<<<< HEAD
             dataIndexAttr: 'data-aspModelIndexer-index'
+=======
+            dataIndexAttr: 'data-index',
+            autoUpdate: true
+>>>>>>> origin/0.1
         },
         init: function (cfg) {
             $.extend(this._cfg, cfg);
@@ -17,6 +26,7 @@
             var isRow = function ($element) {
                 return $element.hasClass(this._cfg.rowClassName);
             }.bind(this);
+<<<<<<< HEAD
             if (this._cfg.event) {
                 this._el.on(this._cfg.event, function (ev) {
                     var smartAssMode = this._cfg.rowSelector
@@ -31,6 +41,23 @@
                     }
                 }.bind(this));
             }
+=======
+            if (this._cfg.event && this._cfg.autoUpdate) {
+                this._el.on(this._cfg.event, function (ev) {
+                    var smartAssMode = this._cfg.rowSelector
+                        && this._cfg.event === 'DOMNodeInserted';
+                    if (smartAssMode) {
+                        var $target = $(ev.originalEvent.target);
+                        if (isRow($target)) {
+                            this.update();
+                        }
+                    } else {
+                        this.update();
+                    }
+                }.bind(this));
+            }
+            this.update();
+>>>>>>> origin/0.1
             return this._el;
         },
         update: function () {
@@ -58,7 +85,11 @@
                 var nextIndex = this._lastIndex++;
                 var rowInputSelector = '';
                 if (!this._cfg.modelName) {
+<<<<<<< HEAD
                     rowInputSelector = 'input[name]:not([type="button"]):not([type="button"])'; // todo: имя может быть не только у инпута
+=======
+                    rowInputSelector = 'input[name]:not([type="button"]):not([type="button"])';
+>>>>>>> origin/0.1
                 } else {
                     rowInputSelector = 'input[name*="{0}"]:not([type="button"]):not([type="button"])'.replace('{0}', this._cfg.modelName);
                 }
@@ -89,7 +120,10 @@
             return this._el;
         },
         setInputIndex: function (index, input) {
+<<<<<<< HEAD
             // todo: имя может быть не только у инпута
+=======
+>>>>>>> origin/0.1
             var fieldName = input.attr('name');
             var indexRegExp = new RegExp("(\\[\\d+\\])");
             var newFieldName = fieldName.replace(indexRegExp, '[' + index + ']');
@@ -104,6 +138,7 @@
     };
 
     $.fn.aspnetCollectionBinder = function (method) {
+<<<<<<< HEAD
         var instanceDataName = 'asp-model-indexer-instance';
         var indexer = this.data(instanceDataName);
         if (!indexer) {
@@ -120,3 +155,22 @@
         }
     };
 })(jQuery);
+=======
+        var instanceDataName = 'asp-collection-binder-instance';
+        var binder = this.data(instanceDataName);
+        if (!binder) {
+            binder = Object.create(aspnetCollectionBinder);
+            binder._el = this;
+            this.data(instanceDataName, binder);
+        }
+        if (binder[method]) {
+            return binder[method].apply(binder, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return binder.init.apply(binder, arguments);
+        } else {
+            $.error('aspnetCollectionBinder: Method "' + method + '" not exists');
+        }
+    };
+
+})(jQuery);
+>>>>>>> origin/0.1
