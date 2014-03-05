@@ -35,7 +35,7 @@ Manual updating may be useful for browsers without Mutation event support.
 
 #About
 
-######Russian:
+######Russian
 http://ts-soft.ru/blog/jquery-aspnet-collectionbinder
 
 
