@@ -9,7 +9,7 @@ A simple, lightweight jQuery utility plugin for easy mapping ASP.NET MVC non-seq
 ```html
 <script src="/path/to/jquery.aspnetCollectionBinder.js"></script>
 ```
-###Basic setup
+###Basic setup (index update on DOM changes)
 
 ```javascript
 $('#employee-table').aspnetCollectionBinder({
@@ -20,7 +20,7 @@ $('#employee-table').aspnetCollectionBinder({
 
 Plugin will observe element DOM changes and update input fields indices.
 
-###Manual index update
+###Manual index update setup
 
 
 ```javascript
