@@ -1,6 +1,6 @@
 /*!
-* About: http://ts-soft.ru/blog/
-* github repository: https://github.com/tssoft/jquery-aspnet-collectionbinder
+* about: http://ts-soft.ru/blog/jquery-aspnet-collectionbinder (russian)
+* github: https://github.com/tssoft/jquery-aspnet-collectionbinder
 */
 (function ($) {
     var aspnetCollectionBinder = {
