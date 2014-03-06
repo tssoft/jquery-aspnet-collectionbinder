@@ -18,7 +18,7 @@ $('#employee-table').aspnetCollectionBinder({
 });
 ```
 
-Plugin will observe element DOM changes and update input fields indices.
+Plugin will observe element DOM changes and update input field names with correct indices.
 
 ###Manual indices update setup
 
@@ -46,7 +46,7 @@ Row data-attribute name for storing index.
 ###autoUpdate
 ###### (default true)
 
-If set true, indexes update on element DOM change.
+If set true, indices update on element DOM change.
 
 #About
 
