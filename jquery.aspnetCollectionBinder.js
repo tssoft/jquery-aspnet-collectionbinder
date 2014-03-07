@@ -96,11 +96,15 @@
         },
         setInputIndex: function (index, input) {
             var fieldName = input.attr('name'),
-                indexRegExp = new RegExp("(\\[\\d+\\])"),
-                newFieldName = fieldName.replace(indexRegExp, '[' + index + ']');
+                split = fieldName.split('.'),
+                prop = split[split.length - 1],
+                newFieldName = '{0}[{1}].{2}'
+                    .replace('{0}', this._cfg.modelName)
+                    .replace('{1}', index)
+                    .replace('{2}', prop);
             input.attr('name', newFieldName);
             return this._el;
-        }, 
+        },
         setCounterValue: function (val) {
             if (!isNaN(parseFloat(val)) && isFinite(val)) {
                 this._lastIndex = val;
