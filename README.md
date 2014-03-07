@@ -124,8 +124,6 @@ $('#employee-table').aspnetCollectionBinder({
 });
 ```
 
-Make sure that you create input with zero index when adding row.
-
 ###Basic setup
 ######on DOM change indices update
 
